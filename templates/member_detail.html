@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container my-4">
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">Member Details</h2>
+        <div class="d-flex gap-2">
+            <a href="{% url 'member_update' member.pk %}" class="btn btn-outline-primary">Edit</a>
+            <a href="{% url 'member_delete' member.pk %}" class="btn btn-outline-danger">Delete</a>
+            <a href="{% url 'members' %}" class="btn btn-outline-secondary">Back</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    {% if member.photo %}
+                        <img src="{{ member.photo.url }}" alt="{{ member.name }}" class="img-fluid rounded">
+                    {% else %}
+                        <div class="text-muted">No photo</div>
+                    {% endif %}
+                </div>
+                <div class="col-md-9">
+                    <p><strong>Name:</strong> {{ member.name }}</p>
+                    <p><strong>Type:</strong> {{ member.get_member_type_display }}</p>
+                    <p><strong>Designation:</strong> {{ member.designation }}</p>
+                    <p><strong>Department:</strong> {{ member.department }}</p>
+                    <p><strong>Email:</strong> {{ member.email }}</p>
+                    <p><strong>Phone:</strong> {{ member.phone|default:"-" }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,5 @@
+# Django Framework
+Django==4.2.27
+
+# Image Processing
+Pillow>=10.0.0

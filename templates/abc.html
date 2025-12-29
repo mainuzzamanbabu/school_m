@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- ================= HERO SLIDER ================= -->
+<div id="collegeSlider" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+            <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f"
+                 class="d-block w-100" style="height:520px; object-fit:cover;">
+            <div class="carousel-caption bg-dark bg-opacity-50 rounded p-4">
+                <h1 class="fw-bold">Excellence in Education</h1>
+                <p class="lead">Empowering students for a brighter future</p>
+                <a href="#" class="btn btn-primary">Explore Programs</a>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b"
+                 class="d-block w-100" style="height:520px; object-fit:cover;">
+            <div class="carousel-caption bg-dark bg-opacity-50 rounded p-4">
+                <h1 class="fw-bold">Experienced Faculty</h1>
+                <p class="lead">Learn from industry experts</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= NOTICE + ABOUT ================= -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+
+            <!-- Notice Board -->
+            <div class="col-lg-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-primary text-white fw-semibold">
+                        📢 Notice Board
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Admissions Open 2025</li>
+                        <li class="list-group-item">Semester Exams – July 10</li>
+                        <li class="list-group-item">AI Workshop – June 20</li>
+                        <li class="list-group-item">Annual Sports Meet</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- About -->
+            <div class="col-lg-8">
+                <div class="p-4 bg-white shadow-sm rounded h-100">
+                    <h2 class="fw-bold mb-3">Welcome to ABC College</h2>
+                    <p class="text-muted">
+                        ABC College is a leading educational institution committed to academic
+                        excellence, innovation, and holistic development.
+                    </p>
+                    <p class="text-muted">
+                        We provide industry-oriented programs, modern infrastructure, and a
+                        vibrant campus life to prepare students for global success.
+                    </p>
+                    <a href="#" class="btn btn-outline-primary">Read More</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= PROGRAMS ================= -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Our Academic Programs</h2>
+            <p class="text-muted">Designed for future-ready careers</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="fw-semibold">Computer Science</h5>
+                        <p class="text-muted">Software, AI, Data Science & more</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="fw-semibold">Business Administration</h5>
+                        <p class="text-muted">Leadership, Finance & Marketing</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="fw-semibold">Science Programs</h5>
+                        <p class="text-muted">Research-driven academic excellence</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= BLOG ================= -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Latest News</h2>
+            <p class="text-muted">Campus updates & achievements</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984"
+                         class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="fw-semibold">Placement Drive</h5>
+                        <p class="text-muted">Top recruiters visited campus</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+                         class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="fw-semibold">Tech Seminar</h5>
+                        <p class="text-muted">Experts discuss AI future</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7"
+                         class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="fw-semibold">Student Achievements</h5>
+                        <p class="text-muted">National level recognition</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="py-5 bg-primary text-white text-center">
+    <div class="container">
+        <h2 class="fw-bold">Admissions Open for 2025</h2>
+        <p class="lead">Join a campus that shapes your future</p>
+        <a href="#" class="btn btn-light btn-lg">Apply Now</a>
+    </div>
+</section>
+{% endblock %}
