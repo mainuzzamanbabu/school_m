@@ -28,7 +28,7 @@ A Django-based school management application with features for managing members,
 
 ```bash
 git clone <repository-url>
-cd SCL
+cd school_m
 ```
 
 ### Step 2: Create a Virtual Environment
@@ -60,7 +60,7 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-### Step 5: Create a Superuser (Optional - for Admin Access)
+### Step 5: Create a Superuser (Optional - for Admin Access. You can skip this)
 
 ```bash
 python manage.py createsuperuser
@@ -134,11 +134,6 @@ python manage.py migrate
 # Run development server
 python manage.py runserver
 
-# Create superuser
-python manage.py createsuperuser
-
-# Collect static files (for production)
-python manage.py collectstatic
 ```
 
 ---
