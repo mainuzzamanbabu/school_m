@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container my-4">
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+        <div>
+            <h2 class="mb-0">Class Routines</h2>
+            <small class="text-muted">Total: {{ page_obj.paginator.count }}</small>
+        </div>
+        <a href="{% url 'routine_create' %}" class="btn btn-success">Add Routine</a>
+    </div>
+
+    <!-- Filters -->
+    <div class="card mb-3">
+        <div class="card-body">
+            <form method="get" class="row g-2 align-items-end">
+                <div class="col-md-4">
+                    <label class="form-label">Filter by Day</label>
+                    <select name="day" class="form-select">
+                        <option value="">All Days</option>
+                        <option value="sunday" {% if request.GET.day == 'sunday' %}selected{% endif %}>Sunday</option>
+                        <option value="monday" {% if request.GET.day == 'monday' %}selected{% endif %}>Monday</option>
+                        <option value="tuesday" {% if request.GET.day == 'tuesday' %}selected{% endif %}>Tuesday</option>
+                        <option value="wednesday" {% if request.GET.day == 'wednesday' %}selected{% endif %}>Wednesday</option>
+                        <option value="thursday" {% if request.GET.day == 'thursday' %}selected{% endif %}>Thursday</option>
+                        <option value="friday" {% if request.GET.day == 'friday' %}selected{% endif %}>Friday</option>
+                        <option value="saturday" {% if request.GET.day == 'saturday' %}selected{% endif %}>Saturday</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Filter by Class</label>
+                    <input type="text" name="class" class="form-control" placeholder="e.g., Class 10" value="{{ request.GET.class }}">
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                    <a href="{% url 'routines' %}" class="btn btn-outline-secondary">Clear</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% if routines %}
+        <div class="table-responsive">
+            <table class="table table-striped align-middle">
+                <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Subject</th>
+                    <th>Teacher</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Room</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for routine in routines %}
+                    <tr>
+                        <td>{{ routine.class_name }}</td>
+                        <td>{{ routine.subject }}</td>
+                        <td>{{ routine.teacher }}</td>
+                        <td>{{ routine.get_day_display }}</td>
+                        <td>{{ routine.start_time|time:"h:i A" }} - {{ routine.end_time|time:"h:i A" }}</td>
+                        <td>{{ routine.room|default:"-" }}</td>
+                        <td class="text-end">
+                            <a href="{% url 'routine_detail' routine.pk %}" class="btn btn-sm btn-outline-secondary">View</a>
+                            <a href="{% url 'routine_update' routine.pk %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                            <a href="{% url 'routine_delete' routine.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <nav aria-label="Routines pagination">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if request.GET.day %}&day={{ request.GET.day }}{% endif %}{% if request.GET.class %}&class={{ request.GET.class }}{% endif %}">Previous</a>
+                    </li>
+                {% endif %}
+
+                <li class="page-item disabled">
+                    <span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+                </li>
+
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if request.GET.day %}&day={{ request.GET.day }}{% endif %}{% if request.GET.class %}&class={{ request.GET.class }}{% endif %}">Next</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% else %}
+        <p class="py-5 px-5 text-center text-danger">No routines found.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

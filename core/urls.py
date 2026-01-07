@@ -34,6 +34,13 @@ from notice.views import (
     NoticeListView,
     NoticeUpdateView,
 )
+from routine.views import (
+    RoutineCreateView,
+    RoutineDeleteView,
+    RoutineDetailView,
+    RoutineListView,
+    RoutineUpdateView,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -49,6 +56,11 @@ urlpatterns = [
     path("notices/<int:pk>/", NoticeDetailView.as_view(), name="notice_detail"),
     path("notices/<int:pk>/edit/", NoticeUpdateView.as_view(), name="notice_update"),
     path("notices/<int:pk>/delete/", NoticeDeleteView.as_view(), name="notice_delete"),
+    path("routines/", RoutineListView.as_view(), name="routines"),
+    path("routines/create/", RoutineCreateView.as_view(), name="routine_create"),
+    path("routines/<int:pk>/", RoutineDetailView.as_view(), name="routine_detail"),
+    path("routines/<int:pk>/edit/", RoutineUpdateView.as_view(), name="routine_update"),
+    path("routines/<int:pk>/delete/", RoutineDeleteView.as_view(), name="routine_delete"),
 ]
 
 if settings.DEBUG:

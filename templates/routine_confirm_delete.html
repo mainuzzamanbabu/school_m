@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container my-4">
+    <div class="card border-danger">
+        <div class="card-body">
+            <h2 class="h5 mb-3">Delete Routine</h2>
+            <p>Are you sure you want to delete <strong>{{ routine.class_name }} - {{ routine.subject }} ({{ routine.get_day_display }})</strong>?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Yes, delete</button>
+                <a href="{% url 'routine_detail' routine.pk %}" class="btn btn-outline-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
